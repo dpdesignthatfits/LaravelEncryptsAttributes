@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-    	"illuminate/encryption": "^5"
+    	"illuminate/encryption": "^7"
     },
     "autoload": {
         "psr-4": {
