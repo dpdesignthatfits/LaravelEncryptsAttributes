@@ -31,6 +31,23 @@ trait EncryptsAttributes
             foreach($attributes as $key => $attribute) {
                 try {
                     $model->$key = decrypt($attribute);
+					
+					try {
+                    $model->$key = decrypt($model->$key);
+					
+						try {
+                    $model->$key = decrypt($model->$key);
+					
+					} catch (DecryptException $e) {
+						$model->$key = $model->$key;
+					}
+						
+						
+						
+					} catch (DecryptException $e) {
+						$model->$key = $model->$key;
+					}
+					
                 } catch (DecryptException $e) {
                     $model->$key = $attribute;
                 }
